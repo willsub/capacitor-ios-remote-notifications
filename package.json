@@ -1,0 +1,64 @@
+{
+  "name": "capacitor-ios-remote-notifications",
+  "version": "0.0.1",
+  "description": "Capacitor plugin for ios remote notifications",
+  "main": "dist/plugin.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "lint": "npm run prettier && npm run swiftlint",
+    "lint.fix": "npm run prettier.fix && npm run swiftlint.fix",
+    "prettier": "prettier --check --plugin=./node_modules/prettier-plugin-java \"**/*.{css,html,ts,js,java}\"",
+    "prettier.fix": "prettier --write --check --plugin=./node_modules/prettier-plugin-java \"**/*.{css,html,ts,js,java}\"",
+    "swiftlint": "node-swiftlint",
+    "swiftlint.fix": "node-swiftlint autocorrect",
+    "build": "npm run clean && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist",
+    "watch": "nodemon -w ./src -w tsconfig.json -w rollup.config.js --exec 'npm run build --silent' -e ts"
+  },
+  "author": "Mateusz Rybczonek",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/android": "^2.4.3",
+    "@capacitor/core": "^2.4.3",
+    "@capacitor/ios": "^2.4.3",
+    "@ionic/prettier-config": "^1.0.0",
+    "@ionic/swiftlint-config": "^1.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "prettier": "^2.0.5",
+    "prettier-plugin-java": "^0.8.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^2.21.0",
+    "swiftlint": "^1.0.1",
+    "typescript": "~3.8.3"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^2.4.3"
+  },
+  "files": [
+    "dist/",
+    "ios/",
+    "CapacitorIosRemoteNotifications.podspec"
+  ],
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native",
+    "notifications",
+    "remote"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  },
+  "prettier": "@ionic/prettier-config",
+  "swiftlint": "@ionic/swiftlint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mateuszRybczonek/capacitor-ios-remote-notifications"
+  },
+  "bugs": {
+    "url": "https://github.com/mateuszRybczonek/capacitor-ios-remote-notifications/issues"
+  }
+}
