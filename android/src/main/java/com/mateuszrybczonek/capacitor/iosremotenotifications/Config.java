@@ -1,4 +1,4 @@
-package com.mateuszRybczonek.capacitor.ios-remote-notifications;
+package com.mateuszrybczonek.capacitor.iosremotenotifications;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;

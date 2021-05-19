@@ -1,4 +1,4 @@
-package com.mycompany.plugins.example;
+package com.mateuszrybczonek.capacitor.iosremotenotifications;
 
 public class Example {
 
