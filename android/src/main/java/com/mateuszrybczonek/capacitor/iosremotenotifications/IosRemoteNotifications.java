@@ -1,8 +1,7 @@
 package com.mateuszrybczonek.capacitor.iosremotenotifications;
 
-public class Example {
+import com.getcapacitor.Plugin;
+import com.getcapacitor.NativePlugin;
 
-    public String echo(String value) {
-        return value;
-    }
-}
+@NativePlugin(name = "IosRemoteNotifications")
+public class IosRemoteNotifications extends Plugin {}

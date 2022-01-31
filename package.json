@@ -1,6 +1,6 @@
 {
   "name": "capacitor-ios-remote-notifications",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Capacitor plugin for ios remote notifications",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
@@ -38,7 +38,7 @@
     "ios/Plugin",
     "ios/Podfile",
     "ios/Podfile.lock",
-    "android/build.gradle",
+    "android/b2ild.gradle",
     "android/gradle.properties",
     "android/settings.gradle",
     "android/src/main",
