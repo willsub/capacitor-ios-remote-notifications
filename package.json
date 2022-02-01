@@ -1,6 +1,6 @@
 {
   "name": "capacitor-ios-remote-notifications",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Capacitor plugin for ios remote notifications",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
@@ -29,8 +29,10 @@
     "swiftlint": "^1.0.1",
     "typescript": "~4.2.3"
   },
-  "peerDependencies": {
-    "@capacitor/core": "^2.4.7"
+  "dependencies": {
+    "@capacitor/android": "^2.5.0",
+    "@capacitor/core": "^2.5.0",
+    "@capacitor/ios": "^2.5.0"
   },
   "files": [
     "dist/esm/*.d.ts",
@@ -38,7 +40,7 @@
     "ios/Plugin",
     "ios/Podfile",
     "ios/Podfile.lock",
-    "android/b2ild.gradle",
+    "android/build.gradle",
     "android/gradle.properties",
     "android/settings.gradle",
     "android/src/main",
