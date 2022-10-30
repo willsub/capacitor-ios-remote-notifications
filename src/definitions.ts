@@ -1,10 +1,3 @@
-// @ts-ignore
-declare module '@capacitor/core' {
-  interface PluginRegistry {
-    IosRemoteNotifications: IosRemoteNotificationsPlugin;
-  }
-}
+import type { WebPlugin } from '@capacitor/core';
 
-export interface IosRemoteNotificationsPlugin {
-  handleDataMessage(notification: any): Promise<void>;
-}
+export interface IosRemoteNotificationsPlugin extends WebPlugin {}
