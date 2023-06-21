@@ -1,4 +1,7 @@
-import { WebPlugin } from '@capacitor/core';
-import { IosRemoteNotificationsPlugin } from './definitions';
+import { WebPlugin } from '@capacitor/core'
+import type { IosRemoteNotificationsPlugin } from './definitions'
 
-export class IosRemoteNotificationsImpl extends WebPlugin implements IosRemoteNotificationsPlugin {}
+// eslint-disable-next-line import/prefer-default-export
+export class IosRemoteNotificationsImpl
+  extends WebPlugin
+  implements IosRemoteNotificationsPlugin {}

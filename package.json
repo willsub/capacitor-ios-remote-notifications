@@ -27,31 +27,38 @@
     "remote"
   ],
   "scripts": {
-    "lint": "npm run prettier && npm run swiftlint",
-    "lint.fix": "npm run prettier.fix && npm run swiftlint.fix",
-    "prettier": "prettier --check --plugin=./node_modules/prettier-plugin-java \"**/*.{css,html,ts,js,java}\"",
-    "prettier.fix": "prettier --write --check --plugin=./node_modules/prettier-plugin-java \"**/*.{css,html,ts,js,java}\"",
-    "swiftlint": "node-swiftlint",
-    "swiftlint.fix": "node-swiftlint autocorrect",
-    "build": "npm run clean && tsc && rollup -c rollup.config.mjs",
-    "clean": "rimraf ./dist",
-    "watch": "nodemon -w ./src -w tsconfig.json -w rollup.config.mjs --exec 'npm run build --silent' -e ts"
+    "clean": "rimraf dist",
+    "lint.eslint": "eslint --fix --cache --ext .js,.cjs,.mjs,.ts --max-warnings 0",
+    "lint.prettier": "prettier --write --plugin ./node_modules/prettier-plugin-java --cache --list-different",
+    "lint.tsc": "tsc --noEmit",
+    "lint": "pnpm lint.eslint . && pnpm lint.prettier . && pnpm lint.tsc && swiftly ios",
+    "prebuilder": "pnpm clean",
+    "builder": "tsc ${SOURCE_MAP:-} && rollup -c rollup.config.mjs",
+    "prebuild": "pnpm lint",
+    "build": "pnpm builder",
+    "build.dev": "SOURCE_MAP=--sourceMap pnpm build",
+    "watch": "nodemon --exec 'pnpm build.dev'"
   },
   "devDependencies": {
-    "@capacitor/cli": "^4.4.0",
-    "@ionic/prettier-config": "^2.0.0",
+    "@aparajita/eslint-config-base": "^1.1.5",
+    "@aparajita/swiftly": "^1.0.4",
+    "@capacitor/cli": "^5.0.5",
+    "@ionic/prettier-config": "^3.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
-    "prettier": "^2.7.1",
-    "prettier-plugin-java": "^1.6.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^3.2.3",
-    "swiftlint": "^1.0.1",
-    "typescript": "~4.8.4"
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.1.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-java": "^2.1.0",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.25.1",
+    "swiftlint": "^1.0.2",
+    "typescript": "~5.1.3"
   },
   "dependencies": {
-    "@capacitor/android": "^4.4.0",
-    "@capacitor/core": "^4.4.0",
-    "@capacitor/ios": "^4.4.0"
+    "@capacitor/android": "^5.0.5",
+    "@capacitor/core": "^5.0.5",
+    "@capacitor/ios": "^5.0.5"
   },
   "capacitor": {
     "ios": {
@@ -61,7 +68,6 @@
       "src": "android"
     }
   },
-  "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
   "repository": {
     "type": "git",

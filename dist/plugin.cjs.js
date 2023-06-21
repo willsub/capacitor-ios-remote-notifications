@@ -2,18 +2,13 @@
 
 var core = require('@capacitor/core');
 
-const IosRemoteNotifications = core.registerPlugin('IosRemoteNotifications', {
-    web: async () => {
-        Promise.resolve().then(function () { return plugin; }).then((module) => new module.IosRemoteNotificationsImpl());
-    },
-    ios: async () => {
-        Promise.resolve().then(function () { return plugin; }).then((module) => new module.IosRemoteNotificationsImpl());
-    },
-    android: async () => {
-        Promise.resolve().then(function () { return plugin; }).then((module) => new module.IosRemoteNotificationsImpl());
-    },
+const proxy = core.registerPlugin('IosRemoteNotifications', {
+    web: async () => Promise.resolve().then(function () { return plugin; }).then((module) => new module.IosRemoteNotificationsImpl()),
+    ios: async () => Promise.resolve().then(function () { return plugin; }).then((module) => new module.IosRemoteNotificationsImpl()),
+    android: async () => Promise.resolve().then(function () { return plugin; }).then((module) => new module.IosRemoteNotificationsImpl()),
 });
 
+// eslint-disable-next-line import/prefer-default-export
 class IosRemoteNotificationsImpl extends core.WebPlugin {
 }
 
@@ -22,4 +17,4 @@ var plugin = /*#__PURE__*/Object.freeze({
     IosRemoteNotificationsImpl: IosRemoteNotificationsImpl
 });
 
-exports.IosRemoteNotifications = IosRemoteNotifications;
+exports.IosRemoteNotifications = proxy;

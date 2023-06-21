@@ -11,6 +11,7 @@ public class IosRemoteNotifications: CAPPlugin {
         if let userInfo = notification.object as? [AnyHashable: Any] {
           self.notifyListeners("onRemoteNotification", data: ["data": userInfo])
         }
-      })
+      }
+    )
   }
 }

@@ -1,4 +1,5 @@
-import { defineConfig } from 'rollup';
+// eslint-disable-next-line import/named
+import { defineConfig } from 'rollup'
 
 export default defineConfig({
   input: 'dist/esm/index.js',
@@ -21,4 +22,4 @@ export default defineConfig({
     },
   ],
   external: ['@capacitor/core'],
-});
+})
